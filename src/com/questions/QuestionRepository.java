@@ -1,27 +1,45 @@
 package com.questions;
 
-public class QuestionRepository {
+import java.util.ArrayList;
+import java.util.Random;
 
-    /**
-     * This will add new question to the repository
-     * @param question
-     * @return
-     */
-    public boolean addQuestion(Question question){
-        // code this
+public class QuestionRepository {
+    // ArrayList of all of the questions in the database
+    private ArrayList<Question> questionList;
+
+    // Constructor to initialize ArrayList
+    public QuestionRepository() {
+        this.questionList = new ArrayList<>();
+    }
+
+    // Boolean method to get a question from the repository
+    // Returns true if question does not already exist, otherwise false
+    public boolean addQuestion(Question question) {
+        for (Question value : questionList) {
+            if (value == question) {
+                return false;
+            }
+        }
+        questionList.add(question);
         return true;
     }
 
-    public Question getRandom(){
-        // Returns a random question
-
-        return null;
+    // Returns a random question from the repository
+    public Question getRandom() {
+        Random ranVal = new Random();
+        int minVal = 0;
+        int maxVal = questionList.size();
+        int randomValue = ranVal.nextInt(maxVal-minVal) + minVal;
+        return questionList.get(randomValue);
     }
 
-    /**
-     * Return question object that has specific id
-     */
+    // Get question when given a specific id number
     public Question getQuestion(int id){
+        for (int i = 0; i < questionList.size(); i++) {
+            if (questionList.get(i).getId() == id) {
+                return questionList.get(i);
+            }
+        }
         return null;
     }
 }
