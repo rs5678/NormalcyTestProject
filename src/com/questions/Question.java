@@ -1,5 +1,7 @@
 package com.questions;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Question {
@@ -35,7 +37,7 @@ public class Question {
     }
 
     public String toJson(){
-        JSONdoc
+        JSONObject jsonObject = new JSONObject();
 
         return "{to be coded}";
     }
