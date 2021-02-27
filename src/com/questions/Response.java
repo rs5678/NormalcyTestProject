@@ -5,7 +5,7 @@ public class Response {
     // Setup all attributes
     public final String text;
 
-    // Constructor that taes all attributes as arguments
+    // Constructor that takes all attributes as arguments
     public Response(String text, int normlacyPercent){
         this.text = text;
         // setup the attributes here
