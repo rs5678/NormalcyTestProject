@@ -1,21 +1,26 @@
 package com.questions;
 
+import java.util.ArrayList;
+
 public class Response {
 
-    // Setup all attributes
+    // All attributes
     public final String text;
+    final int normalcyPercent;
 
-    // Constructor that takes all attributes as arguments
+    // Initialize response constructor
     public Response(String text, int normlacyPercent){
         this.text = text;
-        // setup the attributes here
+        this.normalcyPercent = normlacyPercent;
     }
 
     public Response(String text){
-
         // set normlacy percent to -1 to indicate that it is yet to be assigned
-
         this(text, -1);
+    }
+
+    private String setResponse(String text) {
+        return text;
     }
 
     public String toJson(){

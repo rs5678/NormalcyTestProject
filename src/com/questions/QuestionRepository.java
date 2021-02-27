@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class QuestionRepository {
+    // ArrayList of all of the questions in the database
     private ArrayList<Question> questionList;
-    private Question question;
 
+    // Constructor to initialize ArrayList
+    public QuestionRepository() {
+        this.questionList = new ArrayList<>();
+    }
+
+    // Boolean method to get a question from the repository
+    // Returns true if question does not already exist, otherwise false
     public boolean addQuestion(Question question) {
         for (Question value : questionList) {
             if (value == question) {
@@ -17,6 +24,7 @@ public class QuestionRepository {
         return true;
     }
 
+    // Returns a random question from the repository
     public Question getRandom() {
         Random ranVal = new Random();
         int minVal = 0;
@@ -25,6 +33,7 @@ public class QuestionRepository {
         return questionList.get(randomValue);
     }
 
+    // Get question when given a specific id number
     public Question getQuestion(int id){
         for (int i = 0; i < questionList.size(); i++) {
             if (questionList.get(i).getId() == id) {
