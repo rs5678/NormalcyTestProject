@@ -23,11 +23,13 @@ public class TestSpringController {
     private static void addToRepo(){
         QuestionRepository questionRepository = QuestionRepository.instance;
         ArrayList<Response> responses = new ArrayList<>();
-        Response response = new Response("Brush my teeth");
+        Response response = new Response(1,"Brush my teeth");
         responses.add(response);
-        response = new Response("Look at my phone");
+        response = new Response(2,"Look at my phone");
         responses.add(response);
-        Question question = new Question(-1,"What is the first thing you do in the morning?", responses);
+        response.incrementCounter(2);
+        response.incrementCounter(2);
+        Question question = new Question(1,"What is the first thing you do in the morning?", responses);
         questionRepository.addQuestion(question);
 
         // Add a couple of more questions

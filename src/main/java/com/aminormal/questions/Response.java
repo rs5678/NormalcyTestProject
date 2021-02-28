@@ -16,20 +16,18 @@ public class Response {
     // Counter will be incremented every time some one responds
 
     public final String text;
-    final int normalcyPercent;
     final int id;
     public int counter;
 
     // Initialize response constructor
-    public Response(int id, String text, int normlacyPercent){
+    public Response(int id, String text){
         this.id = id;
         this.text = text;
-        this.normalcyPercent = normlacyPercent;
     }
 
     public Response(String text){
         // set normlacy percent to -1 to indicate that it is yet to be assigned
-        this(-1,text, -1);
+        this(-1,text);
     }
 
     public int getCounter() {
