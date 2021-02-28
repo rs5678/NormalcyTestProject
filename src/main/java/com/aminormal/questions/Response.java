@@ -1,5 +1,9 @@
 package com.aminormal.questions;
 
+import netscape.javascript.JSObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Response {
@@ -13,23 +17,47 @@ public class Response {
 
     public final String text;
     final int normalcyPercent;
+    final int id;
+    public int counter;
 
     // Initialize response constructor
-    public Response(String text, int normlacyPercent){
+    public Response(int id, String text, int normlacyPercent){
+        this.id = id;
         this.text = text;
         this.normalcyPercent = normlacyPercent;
     }
 
     public Response(String text){
         // set normlacy percent to -1 to indicate that it is yet to be assigned
-        this(text, -1);
+        this(-1,text, -1);
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public int incrementCounter(int id) {
+        if (this.id == id) {
+            counter += 1;
+        }
+        return counter;
     }
 
     private String setResponse(String text) {
         return text;
     }
 
-    public String toJson(){
-        return "{to be coded}";
+    private int getId() {
+        return this.id;
+    }
+
+    public JSONObject toJson(){
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("id",this.id);
+        jsonObject.put("text",this.text);
+        jsonObject.put("counter", this.counter);
+
+        return jsonObject;
     }
 }

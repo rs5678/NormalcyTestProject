@@ -1,5 +1,6 @@
 package com.aminormal.questions;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -37,10 +38,16 @@ public class Question {
     }
 
     public String toJson(){
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < responses.size(); i++) {
+            jsonArray.put(responses.get(i).toJson());
+        }
 
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("id",this.id);
+        jsonObject.put("text",this.text);
+        jsonObject.append("responses",jsonArray);
 
 
         return jsonObject.toString(4);
