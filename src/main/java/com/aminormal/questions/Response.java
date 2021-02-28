@@ -5,6 +5,12 @@ import java.util.ArrayList;
 public class Response {
 
     // All attributes
+
+    // Every response will have a UNIQUE ID
+
+    // Every response will have a counter
+    // Counter will be incremented every time some one responds
+
     public final String text;
     final int normalcyPercent;
 

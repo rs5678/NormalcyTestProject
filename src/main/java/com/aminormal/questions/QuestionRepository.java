@@ -49,4 +49,10 @@ public class QuestionRepository {
         }
         return null;
     }
+
+    // Update the counter for response
+    public void incrementCounter(int questionId, String responseId){
+
+    }
+
 }
