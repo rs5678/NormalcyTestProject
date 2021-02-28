@@ -24,6 +24,15 @@ public class QuestionRestController {
         // This will get the random question from repo
         Question question = QuestionRepository.instance.getRandom();
 
+        System.out.println("Test: "+question);
+
         return question.toJson();
     }
+
+    @GetMapping("/test")
+    public String getTest() {
+
+        return "This is my test!!!";
+    }
+
 }

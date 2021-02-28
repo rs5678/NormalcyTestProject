@@ -39,27 +39,3 @@ public class TestSpringController {
 
 }
 
-//    @Autowired
-//    private CustomerRepository customerRepository;
-
-//    @PostMapping("/add")
-//    public String addQuestion(@RequestParam String first, @RequestParam String last) {
-//
-//        return "Added new customer to repo!";
-//    }
-//
-//    @GetMapping("/questions")
-//    public String getRandomQuestion(){
-//        return "tester";
-//    }
-
-//    @GetMapping("/list")
-//    public Iterable<Customer> getCustomers() {
-//        return "customerRepository.findAll()";
-//    }
-
-//    @GetMapping("/find/{id}")
-//    public Customer findCustomerById(@PathVariable Integer id) {
-//        return customerRepository.findCustomerById(id);
-//    }
-//}

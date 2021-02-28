@@ -37,8 +37,12 @@ public class Question {
     }
 
     public String toJson(){
+
         JSONObject jsonObject = new JSONObject();
 
-        return "{to be coded now}";
+        jsonObject.put("id",this.id);
+
+
+        return jsonObject.toString(4);
     }
 }

@@ -22,7 +22,7 @@ public class QuestionRepositoryTest {
         // Add a couple of more questions
 
         question = questionRepository.getRandom();
-        System.out.println(question);
+        System.out.println(question.toJson());
 
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Implemented as a Singleton
+ * Implemented as a Singleton = Only 1 instance of th eclass is needed
  */
 
 public class QuestionRepository {
