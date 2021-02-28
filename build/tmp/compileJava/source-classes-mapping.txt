@@ -1,8 +1,8 @@
-com/aminormal/questions/Response.java
- com.aminormal.questions.Response
 com/aminormal/rest/QuestionRestController.java
  com.aminormal.rest.QuestionRestController
 com/aminormal/questions/Question.java
  com.aminormal.questions.Question
+com/aminormal/questions/Response.java
+ com.aminormal.questions.Response
 com/aminormal/questions/QuestionRepository.java
  com.aminormal.questions.QuestionRepository
