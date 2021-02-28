@@ -4,6 +4,7 @@ import com.aminormal.questions.Question;
 import com.aminormal.questions.QuestionRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,16 @@ public class QuestionRestController {
     public String getTest() {
 
         return "This is my test!!!";
+    }
+
+    @GetMapping("/counter/{questionId}/{responseId}")
+    public String incrementCounter(@PathVariable(value = "questionId") int questionId, @PathVariable(value = "responseId")String responseId){
+
+        // Increment code goes here
+
+
+
+        return "Successfull Increment!!! "+questionId+" "+responseId;
     }
 
 }
