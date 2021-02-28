@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * https://spring.io/guides/tutorials/rest/
+ * https://dzone.com/articles/how-to-create-rest-api-with-spring-boot
  */
 
 @SpringBootApplication
