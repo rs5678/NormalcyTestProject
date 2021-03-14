@@ -3,10 +3,7 @@ package com.aminormal.rest;
 import com.aminormal.questions.Question;
 import com.aminormal.questions.QuestionRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -30,11 +27,42 @@ public class QuestionRestController {
         return question.toJson();
     }
 
+    @GetMapping("/questions{id}")
+    public String getRandomQuestion(@PathVariable(value = "id") int questionId) {
+
+        // get the question for specific ID
+
+        System.out.println("Get the qustion id="+questionId);
+
+        return "{'success': 'ok'}";
+    }
+
     @GetMapping("/test")
     public String getTest() {
 
         return "This is my test!!!";
     }
+
+    @PostMapping ("/questions")
+    public String addQuestion(@RequestBody String json){
+
+        System.out.println(json);
+
+        // Create the question object from the JSON
+
+        // Add the question to the Repository
+
+        return "{'success': 'ok'}";
+    }
+
+    @DeleteMapping (("/questions/{id}"))
+    public String deleteQuestion(@PathVariable(value = "id") int questionId){
+
+        System.out.println("Request to delete qustion id="+questionId);
+
+        return "{'success': 'ok'}";
+    }
+
 
     @GetMapping("/counter/{questionId}/{responseId}")
     public String incrementCounter(@PathVariable(value = "questionId") int questionId, @PathVariable(value = "responseId")String responseId){
