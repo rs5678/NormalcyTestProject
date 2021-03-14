@@ -63,7 +63,7 @@ public class QuestionRepository {
 
 
     // Update the counter for response
-    public void incrementCounter(int questionId, String responseId){
+    public void incrementCounter(int questionId, int responseId){
 
     }
 

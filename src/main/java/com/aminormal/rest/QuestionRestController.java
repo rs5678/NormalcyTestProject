@@ -67,18 +67,18 @@ public class QuestionRestController {
 
 
     @GetMapping("/counter/{questionId}/{responseId}")
-    public String incrementCounter(@PathVariable(value = "questionId") int questionId, @PathVariable(value = "responseId")String responseId){
+    public String incrementCounter(@PathVariable(value = "questionId") int questionId, @PathVariable(value = "responseId")int responseId){
         JSONObject jsonObject = new JSONObject();
 
         QuestionRepository questionRepository = QuestionRepository.instance;
         if (!questionRepository.containsQuestion(questionId)) {
             jsonObject.put("Result",-1);
             jsonObject.put("Error Message", "Question not found!");
-        } else if (!questionRepository.containsResponse(Integer.parseInt(responseId))) {
+        } else if (!questionRepository.containsResponse(responseId)) {
             jsonObject.put("Result", -1);
             jsonObject.put("Error Message", "Response not found!");
         } else {
-            questionRepository.incrementCounter(Integer.parseInt(responseId));
+            questionRepository.incrementCounter(questionId, responseId);
             jsonObject.put("Result", 0);
             jsonObject.put("Success", "Counter is now ");
         }
