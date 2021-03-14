@@ -14,6 +14,8 @@ public class QuestionRepository {
     // ArrayList of all of the questions in the database
     private ArrayList<Question> questionList;
 
+    private ArrayList<Response> responses;
+
     // Constructor to initialize ArrayList
     private QuestionRepository() {
         this.questionList = new ArrayList<>();
@@ -50,9 +52,28 @@ public class QuestionRepository {
         return null;
     }
 
+    public boolean containsQuestion(int id) {
+        for (int i = 0; i < questionList.size(); i++) {
+            if (questionList.get(i).getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     // Update the counter for response
     public void incrementCounter(int questionId, String responseId){
 
+    }
+
+    public boolean containsResponse(int id) {
+        for (int i = 0; i < responses.size(); i++) {
+            if (responses.get(i).getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

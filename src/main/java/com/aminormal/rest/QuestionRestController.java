@@ -2,6 +2,7 @@ package com.aminormal.rest;
 
 import com.aminormal.questions.Question;
 import com.aminormal.questions.QuestionRepository;
+import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,14 +65,25 @@ public class QuestionRestController {
     }
 
 
+
     @GetMapping("/counter/{questionId}/{responseId}")
     public String incrementCounter(@PathVariable(value = "questionId") int questionId, @PathVariable(value = "responseId")String responseId){
+        JSONObject jsonObject = new JSONObject();
 
-        // Increment code goes here
+        QuestionRepository questionRepository = QuestionRepository.instance;
+        if (!questionRepository.containsQuestion(questionId)) {
+            jsonObject.put("Result",-1);
+            jsonObject.put("Error Message", "Question not found!");
+        } else if (!questionRepository.containsResponse(Integer.parseInt(responseId))) {
+            jsonObject.put("Result", -1);
+            jsonObject.put("Error Message", "Response not found!");
+        } else {
+            questionRepository.incrementCounter(Integer.parseInt(responseId));
+            jsonObject.put("Result", 0);
+            jsonObject.put("Success", "Counter is now ");
+        }
 
-
-
-        return "Successfull Increment!!! "+questionId+" "+responseId;
+        return jsonObject.toString(4);
     }
 
 }

@@ -41,11 +41,12 @@ public class Response {
         return counter;
     }
 
+
     private String setResponse(String text) {
         return text;
     }
 
-    private int getId() {
+    public int getId() {
         return this.id;
     }
 
