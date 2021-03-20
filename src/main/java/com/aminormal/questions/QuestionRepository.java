@@ -12,7 +12,7 @@ public class QuestionRepository {
     public final static QuestionRepository instance = new QuestionRepository();
 
     // ArrayList of all of the questions in the database
-    private ArrayList<Question> questionList;
+    public ArrayList<Question> questionList;
 
     private ArrayList<Response> responses;
 
@@ -52,6 +52,15 @@ public class QuestionRepository {
         return null;
     }
 
+    public Response getResponse(int id) {
+        for (int i = 0; i < responses.size(); i++) {
+            if (responses.get(i).getId() == id) {
+                return responses.get(i);
+            }
+        }
+        return null;
+    }
+
     public boolean containsQuestion(int id) {
         for (int i = 0; i < questionList.size(); i++) {
             if (questionList.get(i).getId() == id) {
@@ -61,10 +70,24 @@ public class QuestionRepository {
         return false;
     }
 
+    public boolean deleteQuestion(int questionId) {
+        for (int i = 0; i < questionList.size(); i++) {
+            if (questionList.get(i) == getQuestion(questionId)) {
+                questionList.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     // Update the counter for response
     public void incrementCounter(int questionId, int responseId){
-
+       for (int i = 0; i < questionList.size(); i++) {
+           if (questionList.get(i) == getQuestion(questionId)) {
+               getResponse(responseId).incrementCounter(responseId);
+           }
+       }
     }
 
     public boolean containsResponse(int id) {

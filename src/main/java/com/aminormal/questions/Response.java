@@ -41,7 +41,6 @@ public class Response {
         return counter;
     }
 
-
     private String setResponse(String text) {
         return text;
     }

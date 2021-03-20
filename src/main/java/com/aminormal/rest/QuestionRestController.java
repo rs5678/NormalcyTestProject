@@ -2,6 +2,7 @@ package com.aminormal.rest;
 
 import com.aminormal.questions.Question;
 import com.aminormal.questions.QuestionRepository;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +30,13 @@ public class QuestionRestController {
     }
 
     @GetMapping("/questions{id}")
-    public String getRandomQuestion(@PathVariable(value = "id") int questionId) {
+    public String getQuestionForID(@PathVariable(value = "id") int questionId) {
 
         // get the question for specific ID
 
-        System.out.println("Get the qustion id="+questionId);
+        Question question = QuestionRepository.instance.getQuestion(questionId);
+
+        System.out.println("Get the question id= "+questionId);
 
         return "{'success': 'ok'}";
     }
@@ -46,12 +49,13 @@ public class QuestionRestController {
 
     @PostMapping ("/questions")
     public String addQuestion(@RequestBody String json){
-
-        System.out.println(json);
-
         // Create the question object from the JSON
-
         // Add the question to the Repository
+
+        JSONObject questionJson = new JSONObject();
+        JSONArray responseJson = new JSONArray();
+
+
 
         return "{'success': 'ok'}";
     }
@@ -59,9 +63,14 @@ public class QuestionRestController {
     @DeleteMapping (("/questions/{id}"))
     public String deleteQuestion(@PathVariable(value = "id") int questionId){
 
-        System.out.println("Request to delete qustion id="+questionId);
+        System.out.println("Request to delete question id= "+ questionId);
 
-        return "{'success': 'ok'}";
+        if (QuestionRepository.instance.containsQuestion(questionId)) {
+            deleteQuestion(questionId);
+            return "{'success': 'ok'}";
+        }
+
+        return "{'failure': 'not valid'}";
     }
 
 
