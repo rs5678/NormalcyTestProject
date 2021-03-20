@@ -5,6 +5,8 @@ import com.aminormal.questions.QuestionRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -13,7 +15,11 @@ import org.springframework.web.bind.annotation.*;
  * https://dzone.com/articles/how-to-create-rest-api-with-spring-boot
  */
 
-@SpringBootApplication
+//@SpringBootApplication
+@SpringBootApplication(exclude = {
+        MongoAutoConfiguration.class,
+        MongoDataAutoConfiguration.class
+})
 @RestController
 public class QuestionRestController {
 

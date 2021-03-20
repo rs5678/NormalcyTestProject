@@ -7,12 +7,20 @@ import com.aminormal.questions.QuestionRepository;
 import com.aminormal.questions.Response;
 import com.aminormal.rest.QuestionRestController;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 import java.util.ArrayList;
 
-
-@SpringBootApplication
+//@EnableAutoConfiguration(exclude={MongoAutoConfiguration.class})
+//@SpringBootApplication(exclude={MongoAutoConfiguration.class})
+//@SpringBootApplication
+//@SpringBootApplication(exclude = {
+//        MongoAutoConfiguration.class,
+//        MongoDataAutoConfiguration.class
+//})
 public class TestSpringController {
 
     public static void main(String[] args) {
