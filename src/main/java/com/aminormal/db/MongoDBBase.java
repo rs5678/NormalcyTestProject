@@ -8,10 +8,6 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-/**
- * Base Class for MongoDB operations (similar to JDBC Base Class)
- */
-
 public abstract class MongoDBBase {
 
     // SETUP THESE PARAMETERS FOR YOUR INSTANCE
@@ -20,7 +16,7 @@ public abstract class MongoDBBase {
     final public static String MONGODB_HOST="cluster0.xk5cc.mongodb.net";
 
     final public static String MONGODB_USER="questionUser";
-    final public static String MONGODB_PASSWORD="ridhima";
+    final public static String MONGODB_PASSWORD="Dog12345";
 
     // Ensure the database name is good
     final public static String DATABASE_NAME="myFirstDatabase";
@@ -66,25 +62,6 @@ public abstract class MongoDBBase {
     }
 
     /**
-     * Updates the document
-     */
-    public void executeUpdate(String collection, Bson filter, Bson updateDoc, boolean oneOnly){
-//        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "ERROR");
-
-        MongoClient mongoClient = new MongoClient(new MongoClientURI(MONGODB_CLUSTER_URL));
-
-        MongoDatabase database = mongoClient.getDatabase(DATABASE_NAME);
-
-        MongoCollection mongoCollection = database.getCollection(collection);
-
-        if(oneOnly) {
-            mongoCollection.updateOne(filter, updateDoc);
-        } else {
-            mongoCollection.updateMany(filter, updateDoc);
-        }
-    }
-
-    /**
      * Executes the check for existence
      * https://docs.mongodb.com/manual/reference/method/db.collection.countDocuments/
      */
@@ -108,6 +85,7 @@ public abstract class MongoDBBase {
 
 
 }
+
 
 
 

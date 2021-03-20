@@ -52,7 +52,9 @@ public class QuestionRestController {
         // Create the question object from the JSON
         // Add the question to the Repository
 
-        JSONObject questionJson = new JSONObject();
+        JSONObject questionJson = new JSONObject(json);
+
+
         JSONArray responseJson = new JSONArray();
 
 
